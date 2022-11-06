@@ -26,6 +26,9 @@ NAME	=	minishell
 SRCDIR	=	src/
 SRCS	=	$(wildcard $(SRCDIR)*.c) # Wildcard for sources is forbidden by norminette
 
+LIBFTDIR	=	libft/
+SRCS	=	$(wildcard $(LIBFTDIR)*.c) # Wildcard for sources is forbidden by norminette
+
 # Objects are all .o files
 OBJDIR	=	bin/
 OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
