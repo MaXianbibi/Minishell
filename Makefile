@@ -20,7 +20,7 @@ CFLAGS	=	-Wall -Werror -Wextra -I. -I./$(INCDIR)
 RM		=	rm -f
 
 # Output file name
-NAME	=	
+NAME	=	minishell
 
 # Sources are all .c files
 SRCDIR	=	src/

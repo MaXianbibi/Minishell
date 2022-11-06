@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   d_minishell.h                                      :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:47:16 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/06 17:35:36 by dwawzyni         ###   ########.fr       */
+/*   Created: 2022/11/06 17:16:11 by dwawzyni          #+#    #+#             */
+/*   Updated: 2022/11/06 17:31:45 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef D_MINISHELL_H
-# define D_MINISHELL_H
+#include "minishell.h"
 
-#include <stdio.h>
-
-
-#endif
+char *get_cmd(int ac, char **av)
+{
+    char *cmdline;
+    int i;
+    
+    i = 1;
+    while(ac)
+    {
+        cmdline = ft_strjoin(cmdline ,av[i]);
+        printf("%s",cmdline);
+    }
+    return(cmdline);
+}
