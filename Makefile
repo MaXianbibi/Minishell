@@ -1,68 +1,54 @@
-#------------------------------------------------------------------------------#
-#                                  GENERICS                                    #
-#------------------------------------------------------------------------------#
+NAME = minishell
+LIBFT = libft/libft.a
+CC = @gcc
+CFLAGS = -Wall -Wextra -Werror -g
+RM = @rm -f
+INCLUDE = -I include/
 
-# Special variables
-DEFAULT_GOAL: all
-.DELETE_ON_ERROR: $(NAME)
-.PHONY: all bonus clean fclean re
-# 'HIDE = @' will hide all terminal output from Make
-HIDE =
+SRC_DIR = src/
+SRC_FILES =	Echo.c minishell.c parsing.c
 
+OBJ_DIR = objs/
+OBJS = ${addprefix ${OBJ_DIR}, $(SRC_FILES:.c=.o)}
 
-#------------------------------------------------------------------------------#
-#                                VARIABLES                                     #
-#------------------------------------------------------------------------------#
+${OBJ_DIR}%.o: ${SRC_DIR}%.c
+	@echo "$(_BLUE)$(_BOLD)Compilation Printf: $< $(_END)"
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-# Compiler and flags
-CC		=	gcc
-CFLAGS	=	-Wall -Werror -Wextra -I. -I./$(INCDIR)
-RM		=	rm -f
-
-# Output file name
-NAME	=	minishell
-
-# Sources are all .c files
-SRCDIR	=	src/
-SRCS	=	$(wildcard $(SRCDIR)*.c) # Wildcard for sources is forbidden by norminette
-
-LIBFTDIR	=	libft/
-SRCS	=	$(wildcard $(LIBFTDIR)*.c) # Wildcard for sources is forbidden by norminette
-
-# Objects are all .o files
-OBJDIR	=	bin/
-OBJS	=	$(patsubst $(SRCDIR)%.c,$(OBJDIR)%.o,$(SRCS))
-
-# Includes are all .h files
-INCDIR	=	include/
-INC		=	$(wildcard $(INCDIR)*.h)
-
-
-#------------------------------------------------------------------------------#
-#                                 TARGETS                                      #
-#------------------------------------------------------------------------------#
+#Couleurs!
+_END=$'\x1b[0m
+_BOLD=$'\x1b[1m
+_UNDER=$'\x1b[4m
+_RED=$'\x1b[31m
+_GREEN=$'\x1b[32m
+_YELLOW=$'\x1b[33m
+_BLUE=$'\x1b[34m
+_PURPLE=$'\x1b[35m
+_WHITE=$'\x1b[37m
+_IRED=$'\x1b[41m
+_IGREEN=$'\x1b[42m
+_IYELLOW=$'\x1b[43m
+_IBLUE=$'\x1b[44m
+_IPURPLE=$'\x1b[45m
+_IWHITE=$'\x1b[47m
 
 all: $(NAME)
 
-# Generates output file
-$(NAME): $(OBJS)
-	$(HIDE)$(CC) $(CFLAGS) -o $@ $^
+$(NAME): ${OBJ_DIR} $(OBJS) ${LIBFT}
+	${CC} ${OBJS} ${LIBFT} -o $@
 
-# Compiles sources into objects
-$(OBJS): $(OBJDIR)%.o : $(SRCDIR)%.c $(INC) | $(OBJDIR)
-	$(HIDE)$(CC) $(CFLAGS) -c $< -o $@
+${OBJ_DIR}:
+	mkdir -p $@
 
-# Creates directory for binaries
-$(OBJDIR):
-	$(HIDE)mkdir -p $@
+${LIBFT}:
+	@make -C ./libft
 
-# Removes objects
 clean:
-	$(HIDE)$(RM) $(OBJS)
+	@$(MAKE) clean -C ./libft
+	@$(RM) -r ${OBJ_DIR}
 
-# Removes objects and executables
 fclean: clean
-	$(HIDE)$(RM) $(NAME)
+	@$(MAKE) fclean -C ./libft
+	@$(RM) $(NAME)
 
-# Removes objects and executables and remakes
 re: fclean all

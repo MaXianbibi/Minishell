@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:33:57 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/06 17:34:35 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:12:27 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/minishell.h"
+#include "minishell.h"
 
 int main(int argc, char **argv)
 {
 	get_cmd(argc,argv);
-
+	
 	
 }
