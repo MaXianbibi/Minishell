@@ -2,6 +2,7 @@ NAME = minishell
 LIBFT = libft/libft.a
 CC = @gcc
 CFLAGS = -Wall -Wextra -Werror -g
+FFLAGS = -lreadline
 RM = @rm -f
 INCLUDE = -I include/
 
@@ -35,7 +36,7 @@ _IWHITE=$'\x1b[47m
 all: $(NAME)
 
 $(NAME): ${OBJ_DIR} $(OBJS) ${LIBFT}
-	${CC} ${OBJS} ${LIBFT} -o $@
+	${CC} ${OBJS} ${LIBFT} $(FFLAGS) -o $@
 
 ${OBJ_DIR}:
 	mkdir -p $@
