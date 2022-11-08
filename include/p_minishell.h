@@ -6,7 +6,7 @@
 /*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:48:41 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/06 17:34:16 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/07 17:49:43 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@
 #include "s_minishell.h"
 
 char *get_cmd(int ac, char **av);
+void check_for_builtins(char **av);
 
 #endif
