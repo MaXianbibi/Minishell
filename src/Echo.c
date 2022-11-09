@@ -6,7 +6,7 @@
 /*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:56:39 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 01:59:41 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:01:58 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,24 @@
 
  void echo(char **splitcmd)
  {
-    // char *str2 = NULL;
-    char *str;
-    (void)splitcmd;
-    
-    str = ft_strjoin(str,"\n");
-    // str2 = splitcmd[1];
-    // if(ft_strncmp(splitcmd[1],"-n",2) == 0)
-        // ft_printf("%s",str2);
-    // else
-        printf("%s",str);
+    int i;
+    if(splitcmd[1] == NULL)
+        return ;
+        if(!ft_strncmp(splitcmd[1],"-n", 2))
+        {
+            i = 2;
+            while (splitcmd[i])
+                printf("%s ", splitcmd[i++]);
+        }
+        else
+        {
+            i = 1;
+            while (splitcmd[i])
+            {
+                printf("%s ", splitcmd[i]);
+                if(splitcmd[i + 1] == NULL)
+                    printf("\n");
+                i++;
+            }
+        }
  }

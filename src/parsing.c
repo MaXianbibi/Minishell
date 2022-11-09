@@ -6,7 +6,7 @@
 /*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:16:11 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 01:33:53 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:17:24 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ char **split_cmdline(char *av)
     char **cmd_splitted;
     cmd_splitted = ft_split(av,' ');
     return(cmd_splitted);
+    
 }
 
 void check_for_builtins(char *av)
@@ -37,7 +38,7 @@ void check_for_builtins(char *av)
      else if (!ft_strncmp(av, "unset", 5))
         printf("unset\n");
     else if (!ft_strncmp(av, "env", 3))
-        printf("env\n");
+        env();
 }
 
 char *parsing_PATH()
