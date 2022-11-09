@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:48:48 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/08 14:33:41 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/08 17:08:00 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,11 @@
 # include "s_minishell.h"
 
 
- #include <stdio.h>
+
+#include <stdio.h>
 #include <readline/readline.h>
 #include <readline/history.h>
 #include <string.h>
+
 
 #endif

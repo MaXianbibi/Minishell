@@ -2,9 +2,9 @@ NAME = minishell
 LIBFT = libft/libft.a
 CC = @gcc
 CFLAGS = -Wall -Wextra -Werror -g
-FFLAGS = -lreadline
+LFLAGS = -Llib/readline -lreadline -lcurses 
 RM = @rm -f
-INCLUDE = -I include/
+INCLUDE = -I include/ -I lib/
 
 SRC_DIR = src/
 SRC_FILES =	Echo.c minishell.c parsing.c
@@ -36,7 +36,7 @@ _IWHITE=$'\x1b[47m
 all: $(NAME)
 
 $(NAME): ${OBJ_DIR} $(OBJS) ${LIBFT}
-	${CC} ${OBJS} ${LIBFT} $(FFLAGS) -o $@
+	${CC} ${OBJS} ${LIBFT} $(LFLAGS) -o $@
 
 ${OBJ_DIR}:
 	mkdir -p $@
