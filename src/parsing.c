@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:16:11 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 01:33:53 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:21:32 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ char **split_cmdline(char *av)
     return(cmd_splitted);
 }
 
-void check_for_builtins(char *av)
+void check_for_builtins(char *av, char **envp)
 {
     int i;
     char **stack;
+	char *ok ;
 
     i = 0;
     stack = split_cmdline(av);
@@ -38,6 +39,18 @@ void check_for_builtins(char *av)
         printf("unset\n");
     else if (!ft_strncmp(av, "env", 3))
         printf("env\n");
+	else if (!strcmp(av, "exit"))
+			exit(EXIT_SUCCESS);
+	else
+	{
+		ok = find(envp, av);
+		if (ok)
+		{
+			printf("%s\n", ok);
+			free (ok);
+		}
+	}
+
 }
 
 char *parsing_PATH()

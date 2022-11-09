@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_minishell.h                                      :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:48:41 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/09 03:18:46 by jmorneau         ###   ########.fr       */
+/*   Created: 2022/08/12 22:04:16 by jmorneau          #+#    #+#             */
+/*   Updated: 2022/11/09 03:18:31 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef P_MINISHELL_H
-# define P_MINISHELL_H
+#include "../include/minishell.h"
 
-#include "s_minishell.h"
+void	*print_error(void)
+{
+	ft_printf("Error\n");
+	return (NULL);
+}
 
-char *parsing_PATH();
-void check_for_builtins(char *av, char **envp);
-char **split_cmdline(char *av);
-
-void echo(char **splitcmd);
-void pwd();
-void cd(char *path);
-
-char	*find(char **envp, char *cmd);
-void	*print_error(void);
-int	print_error_int(void);
-
-#endif
+int	print_error_int(void)
+{
+	ft_printf("Error\n");
+	return (1);
+}
