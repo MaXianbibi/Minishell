@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   env.c                                              :+:      :+:    :+:   */
+/*   print_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/09 03:14:19 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 03:49:05 by dwawzyni         ###   ########.fr       */
+/*   Created: 2022/08/12 22:04:16 by jmorneau          #+#    #+#             */
+/*   Updated: 2022/11/09 03:18:31 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void env()
+void	*print_error(void)
 {
-    int i;
-    char **envp;
-    
-    i = 0;
-    while(envp[i] != NULL)
-    {
-        printf("%s\n",envp[i++]);
-    }
+	ft_printf("Error\n");
+	return (NULL);
+}
+
+int	print_error_int(void)
+{
+	ft_printf("Error\n");
+	return (1);
 }

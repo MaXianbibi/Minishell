@@ -6,7 +6,7 @@
 /*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:16:11 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 03:17:24 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:26:46 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,11 @@ char **split_cmdline(char *av)
     
 }
 
-void check_for_builtins(char *av)
+void check_for_builtins(char *av, char **envp)
 {
     int i;
     char **stack;
+	char *ok ;
 
     i = 0;
     stack = split_cmdline(av);
@@ -39,6 +40,18 @@ void check_for_builtins(char *av)
         printf("unset\n");
     else if (!ft_strncmp(av, "env", 3))
         env();
+	else if (!strcmp(av, "exit"))
+			exit(EXIT_SUCCESS);
+	else
+	{
+		ok = find(envp, av);
+		if (ok)
+		{
+			printf("%s\n", ok);
+			free (ok);
+		}
+	}
+
 }
 
 char *parsing_PATH()
