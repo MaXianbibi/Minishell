@@ -2,11 +2,12 @@ NAME = minishell
 LIBFT = libft/libft.a
 CC = @gcc
 CFLAGS = -Wall -Wextra -Werror -g
+FFLAGS = -lreadline
 RM = @rm -f
 INCLUDE = -I include/
 
 SRC_DIR = src/
-SRC_FILES =	Echo.c minishell.c parsing.c
+SRC_FILES =	Echo.c minishell.c parsing.c pwd.c cd.c utils.c
 
 OBJ_DIR = objs/
 OBJS = ${addprefix ${OBJ_DIR}, $(SRC_FILES:.c=.o)}
@@ -35,7 +36,7 @@ _IWHITE=$'\x1b[47m
 all: $(NAME)
 
 $(NAME): ${OBJ_DIR} $(OBJS) ${LIBFT}
-	${CC} ${OBJS} ${LIBFT} -o $@
+	${CC} ${OBJS} ${LIBFT} $(FFLAGS) -o $@
 
 ${OBJ_DIR}:
 	mkdir -p $@

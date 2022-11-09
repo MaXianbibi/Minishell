@@ -1,25 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_minishell.h                                      :+:      :+:    :+:   */
+/*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:48:41 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/09 01:33:13 by dwawzyni         ###   ########.fr       */
+/*   Created: 2022/11/09 00:06:48 by dwawzyni          #+#    #+#             */
+/*   Updated: 2022/11/09 00:47:02 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef P_MINISHELL_H
-# define P_MINISHELL_H
+#include "../include/minishell.h"
 
-#include "s_minishell.h"
-char *parsing_PATH();
-void check_for_builtins(char *av);
-char **split_cmdline(char *av);
-
-void echo(char **splitcmd);
-void pwd();
-void cd(char *path);
-
-#endif
+void cd(char *path)
+{
+    if (chdir(path) !=0)
+        perror(path);
+}
