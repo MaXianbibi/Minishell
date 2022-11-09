@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p_minishell.h                                      :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
+/*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:48:41 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/09 01:56:35 by jmorneau         ###   ########.fr       */
+/*   Created: 2022/11/08 21:03:09 by dwawzyni          #+#    #+#             */
+/*   Updated: 2022/11/08 23:29:07 by dwawzyni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef P_MINISHELL_H
-# define P_MINISHELL_H
+#include "../include/minishell.h"
 
-#include "s_minishell.h"
+void	free_split(char **args)
+{
+	int	size;
+	int	i;
 
-char *parsing_PATH();
-void check_for_builtins(char *av);
-char **split_cmdline(char *av);
-
-void echo(char **splitcmd);
-void pwd();
-void cd(char *path);
-
-#endif
+	i = 0;
+	size = 0;
+	while (args[size])
+		size++;
+	while (i < size)
+		free(args[i++]);
+	free(args);
+}

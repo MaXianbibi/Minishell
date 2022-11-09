@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Echo.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dwawzyni <dwawzyni@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:56:39 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/06 17:31:57 by dwawzyni         ###   ########.fr       */
+/*   Updated: 2022/11/09 02:03:50 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// char *echo(int ac, char **av)
-// {
-    
-// }
+#include "../include/minishell.h"
+
+ void echo(char **splitcmd)
+ {
+    if(!ft_strncmp(splitcmd[1],"-n", 2))
+        printf("%s", splitcmd[2]);
+    else
+        printf("%s\n", splitcmd[1]);
+ }
