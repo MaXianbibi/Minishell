@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:16:11 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 03:21:32 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:51:22 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void check_for_builtins(char *av, char **envp)
         printf("env\n");
 	else if (!strcmp(av, "exit"))
 			exit(EXIT_SUCCESS);
-	else
+	else if (*av)
 	{
 		ok = find(envp, av);
 		if (ok)
@@ -50,6 +50,8 @@ void check_for_builtins(char *av, char **envp)
 			free (ok);
 		}
 	}
+	(void)envp;
+	(void)ok;
 
 }
 

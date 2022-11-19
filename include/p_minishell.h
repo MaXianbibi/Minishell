@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:48:41 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/09 03:18:46 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/09 04:44:12 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@ void cd(char *path);
 char	*find(char **envp, char *cmd);
 void	*print_error(void);
 int	print_error_int(void);
+
+void handler_sigint(int num);
 
 #endif

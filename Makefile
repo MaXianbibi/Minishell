@@ -7,7 +7,7 @@ RM = @rm -f
 INCLUDE = -I include/ -I lib/
 
 SRC_DIR = src/
-SRC_FILES =	Echo.c minishell.c parsing.c pwd.c cd.c utils.c find_path.c print_error.c
+SRC_FILES =	Echo.c minishell.c parsing.c pwd.c cd.c utils.c find_path.c print_error.c signal.c
 
 OBJ_DIR = objs/
 OBJS = ${addprefix ${OBJ_DIR}, $(SRC_FILES:.c=.o)}
