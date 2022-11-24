@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:48:41 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/24 07:43:06 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/24 07:52:26 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ void print_env(void);
 void ft_export(char **arg);
 void	insert_at_head(t_node **head, t_node *node_to_insert);
 t_node	*creat_new_node(char *str);
+
 
 #endif

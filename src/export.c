@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 04:07:06 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/23 06:33:20 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/24 07:51:48 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ static int search_equal(char *str)
 	return (0);
 }
 
-static int check_same_name(char *str)
-{
-kiki
+// static int check_same_name(char *str)
+// {
+// kiki
 	
-}
+// }
 
 void ft_export(char **arg)
 {

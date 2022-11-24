@@ -6,20 +6,22 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 03:14:19 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/24 07:43:10 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/24 07:52:05 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/minishell.h"
 
-void env()
+extern t_global global;
+
+void print_env(void)
 {
-    int i;
-    char **envp;
-    
-    i = 0;
-    while(envp[i] != NULL)
-    {
-        printf("%s\n",envp[i++]);
-    }
+	t_node *tmp;
+
+	tmp = global.envp;
+	while (tmp)
+	{
+		printf("%s\n", tmp->value);
+		tmp = tmp->next;
+	}
 }
