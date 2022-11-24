@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 16:48:48 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/09 02:35:23 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/09 03:41:30 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 #include <readline/history.h>
 #include <string.h>
 #include <signal.h>
+# include <errno.h>
+
 
 
 
