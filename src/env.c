@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_minishell.h                                      :+:      :+:    :+:   */
+/*   env.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/06 16:48:31 by jmorneau          #+#    #+#             */
-/*   Updated: 2022/11/23 03:58:20 by jmorneau         ###   ########.fr       */
+/*   Created: 2022/11/23 04:00:55 by jmorneau          #+#    #+#             */
+/*   Updated: 2022/11/23 04:02:40 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef S_MINISHELL_H
-# define S_MINISHELL_H
 
-struct s_node
+#include "../include/minishell.h"
+
+extern t_global global;
+
+void print_env(void)
 {
-	struct s_node	*next;
-	char			*value;
-};
-typedef struct s_node	t_node;
+	t_node *tmp;
 
-struct s_global
-{
-	t_node		*envp;
-};
-typedef struct	s_global t_global;
-
-#endif
+	tmp = global.envp;
+	while (tmp)
+	{
+		printf("%s\n", tmp->value);
+		tmp = tmp->next;
+	}
+}

@@ -6,7 +6,7 @@
 /*   By: jmorneau <jmorneau@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/06 17:16:11 by dwawzyni          #+#    #+#             */
-/*   Updated: 2022/11/09 03:51:22 by jmorneau         ###   ########.fr       */
+/*   Updated: 2022/11/23 04:39:55 by jmorneau         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ void check_for_builtins(char *av, char **envp)
     else if (!ft_strncmp(av, "pwd", 3))
         pwd();
     else if (!ft_strncmp(av, "export", 6))
-        printf("export\n");
+		ft_export(stack);
      else if (!ft_strncmp(av, "unset", 5))
         printf("unset\n");
     else if (!ft_strncmp(av, "env", 3))
-        printf("env\n");
+		print_env();
 	else if (!strcmp(av, "exit"))
 			exit(EXIT_SUCCESS);
 	else if (*av)
